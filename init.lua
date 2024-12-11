@@ -53,6 +53,11 @@ vim.opt.timeoutlen = 1000 -- 500ms to allow smoother key sequences
 -- Preview substitutions live
 vim.opt.inccommand = "split"
 
+vim.keymap.set('n', '<leader>cd', function ()vim.diagnostic.open_float() end, opts)
+vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
+vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
+
+
 --Highligth on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
