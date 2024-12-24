@@ -58,6 +58,15 @@ vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
 
 
+if vim.g.neovide then
+    if jit.os == "Linux" then
+        vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+    elseif jit.os == "Windows" then
+        vim.o.guifont = "Source Code Pro:h10"
+    end
+end
+
+
 --Highligth on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
