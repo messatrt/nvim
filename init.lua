@@ -1,4 +1,5 @@
 -- Set the leader key to <Space>
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -53,17 +54,17 @@ vim.opt.timeoutlen = 1000 -- 500ms to allow smoother key sequences
 -- Preview substitutions live
 vim.opt.inccommand = "split"
 
-vim.keymap.set('n', '<leader>cd', function ()vim.diagnostic.open_float() end, opts)
+vim.keymap.set('n', '<leader>cd', function() vim.diagnostic.open_float() end, opts)
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
 
 
 if vim.g.neovide then
-    if jit.os == "Linux" then
-        vim.o.guifont = "JetBrainsMono Nerd Font:h10"
-    elseif jit.os == "Windows" then
-        vim.o.guifont = "Source Code Pro:h10"
-    end
+	if jit.os == "Linux" then
+		vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+	elseif jit.os == "Windows" then
+		vim.o.guifont = "Source Code Pro:h10"
+	end
 end
 
 
@@ -78,4 +79,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Lazy set up
 require("config.lazy")
-vim.cmd("colorscheme rose-pine-moon")
+--vim.cmd("colorscheme rose-pine-moon")
