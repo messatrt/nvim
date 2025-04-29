@@ -48,7 +48,7 @@ return {
           vim.keymap.set({ 'n', 'x' }, '<leader>fm', function() vim.lsp.buf.format({ async = true }) end, opts)
           vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
-          vim.keymap.set('n', '<leader>gq', vim.diagnostic.setloclist, opts)
+          vim.keymap.set('n', 'gq', vim.diagnostic.setloclist, opts)
           vim.keymap.set('n', 'g]', vim.diagnostic.get_next, opts)
           vim.keymap.set('n', 'g[', vim.diagnostic.get_prev, opts)
         end,
